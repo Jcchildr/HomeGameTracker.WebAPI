@@ -19,5 +19,5 @@ namespace HomeGameTracker.Data
         {
             ListOfGames = new HashSet<Game>();
         }
-    }
+    }//end of class
 }
