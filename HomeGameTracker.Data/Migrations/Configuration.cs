@@ -10,7 +10,6 @@ namespace HomeGameTracker.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "HomeGameTracker.Data.ApplicationDbContext";
         }
 
         protected override void Seed(HomeGameTracker.Data.ApplicationDbContext context)
