@@ -15,11 +15,14 @@ namespace HomeGameTracker.Data
         [Required]
         public string GameName { get; set; }
         [Required]
-        public string AgeRange { get; set; }
+        public int AgeRating { get; set; }
         [Required]
-        public string NumberOfPlayers { get; set; }
+        [Range(1, 64, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public object NumberOfPlayers { get; set; }
         [Required]
-        public DateTime PublishDate { get; set; }
+        [Range(typeof(DateTime), "1/1/1900", "6/12/2021",
+        ErrorMessage = "Value for {0} must be between {1} and {2}")]
+        public object PublishDate { get; set; }
         [Required]
         public bool TeamGame { get; set; }
 
