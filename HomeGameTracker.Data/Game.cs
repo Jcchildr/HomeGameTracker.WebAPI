@@ -20,11 +20,13 @@ namespace HomeGameTracker.Data
         [Range(1, 64, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public object NumberOfPlayers { get; set; }
         [Required]
-        [Range(typeof(DateTime), "1/1/1900", "6/12/2021",
+        [Range(typeof(int), "1900", "2021",
         ErrorMessage = "Value for {0} must be between {1} and {2}")]
-        public object PublishDate { get; set; }
+        public object PublishYear { get; set; }
         [Required]
         public bool TeamGame { get; set; }
+        [Required]
+        public string Genre { get; set; }
 
         [ForeignKey(nameof(StorageArea))]
         public int StorageId { get; set; }
