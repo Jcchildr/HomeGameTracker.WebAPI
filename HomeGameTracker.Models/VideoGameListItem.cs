@@ -12,9 +12,12 @@ namespace HomeGameTracker.Models
         //returning information on the game when it's part of a list
         public int GameId { get; set; }
         [Display(Name="Title")]
-        public int GameName { get; set; }
+        public string GameName { get; set; }
         [Display(Name = "Age Range")]
-        public string AgeRange { get; set; }
+        [Range(typeof(int), "1900", "2021",
+        ErrorMessage = "Value for {0} must be between {1} and {2}")]
+        public object PublishYear { get; set; }
+        public int AgeRating { get; set; }
         [Display(Name = "Number Of Players")]
         [Range(1, 64, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public object NumberOfPlayers { get; set; }
