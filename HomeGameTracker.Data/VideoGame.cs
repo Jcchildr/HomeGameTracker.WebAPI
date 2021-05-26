@@ -15,7 +15,5 @@ namespace HomeGameTracker.Data
         public bool OnlineGamePlay { get; set; }
         [Required]
         public string Genre { get; set; }
-        [Required]
-        public string Format { get; set; }
     }//end class
 }
