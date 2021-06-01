@@ -14,12 +14,11 @@ namespace HomeGameTracker.Models
         [Required]
         public int AgeRating { get; set; }
         [Required]
-        [Range(1, 64, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
-        public object NumberOfPlayers { get; set; }
+        public int NumberOfPlayers { get; set; }
         [Required]
-        [Range(typeof(DateTime), "1/1/1900", "6/12/2021",
-        ErrorMessage = "Value for {0} must be between {1} and {2}")]
-        public object PublishDate { get; set; }
+        public int PublishYear { get; set; }
+        [Required]
+        public string Genre { get; set; }
         [Required]
         public bool TeamGame { get; set; }
         [Required]
@@ -27,6 +26,6 @@ namespace HomeGameTracker.Models
         [Required]
         public bool OnlineGamePlay { get; set; }
         [Required]
-        public string Genre { get; set; }
+        public int StorageId { get; set; }
     }
 }

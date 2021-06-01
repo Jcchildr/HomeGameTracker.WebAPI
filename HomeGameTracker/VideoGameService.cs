@@ -10,6 +10,7 @@ namespace HomeGameTracker
 {
     public class VideoGameService
     {
+       
         public bool CreateVideoGame(VideoGameCreate model)
         {
             var entity =
@@ -23,6 +24,7 @@ namespace HomeGameTracker
                     ConsoleType = model.ConsoleType,
                     OnlineGamePlay = model.OnlineGamePlay,
                     Genre = model.Genre,
+                    StorageId = model.StorageId,
                 };
             using (var ctx = new ApplicationDbContext())//Saving the created game to the database 
             {
@@ -49,6 +51,8 @@ namespace HomeGameTracker
                                     NumberOfPlayers = e.NumberOfPlayers,
                                     ConsoleType = e.ConsoleType,
                                     Genre = e.Genre,
+                                    NameOfStorageArea = e.StorageArea.NameOfStorageArea,
+
                                 }
                             );
                 return query.ToArray();
