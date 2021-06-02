@@ -58,6 +58,10 @@
     <Compile Include="CardGameDetail.cs" />
     <Compile Include="CardGameEdit.cs" />
     <Compile Include="GameListItem.cs" />
+    <Compile Include="StorageAreaList.cs" />
+    <Compile Include="StorageAreaCreate.cs" />
+    <Compile Include="VideoGameCreate.cs" />
+    <Compile Include="VideoGameListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

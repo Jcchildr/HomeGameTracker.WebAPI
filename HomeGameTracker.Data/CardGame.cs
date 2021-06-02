@@ -9,13 +9,13 @@ namespace HomeGameTracker.Data
 {
     public class CardGame : Game
     {
-        [Required]
+     
         public string NumberOfCards { get; set; }
-        [Required]
+    
         public string ExtraEquipmentUsed { get; set; }
-        [Required]
+   
         public bool IsGamblingGame { get; set; }
-        [Required]
+      
         public int AvgPlayTimeInMin { get; set; }
     }//end of class CardGame
 }
