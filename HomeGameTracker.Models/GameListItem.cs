@@ -13,11 +13,13 @@ namespace HomeGameTracker.Models
         public int GameId { get; set; }
         [Display(Name = "Title")]
         public string GameName { get; set; }
-        [Display(Name = "Age Range")]
+        [Display(Name = "Card game genre")]
+        public string Genre { get; set; }
+        [Display(Name = "Age Rating")]
         public int AgeRating { get; set; }
         [Display(Name = "Number Of Players")]
         [Range(1, 64, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
-        public object NumberOfPlayers { get; set; }
+        public int NumberOfPlayers { get; set; }
         [Display(Name = "Number of cards needed")]
         public string NumberOfCards { get; set; }
         [Display(Name = "Items needed other than the cards")]

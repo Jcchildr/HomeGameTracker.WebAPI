@@ -20,6 +20,7 @@ namespace HomeGameTracker
                 new CardGame()
                 {
                     GameName = model.GameName,
+                    Genre = model.Genre,
                     AgeRating = model.AgeRating,
                     NumberOfPlayers = model.NumberOfPlayers,
                     TeamGame = model.TeamGame,
@@ -28,13 +29,13 @@ namespace HomeGameTracker
                     ExtraEquipmentUsed = model.ExtraEquipmentUsed,
                     IsGamblingGame = model.IsGamblingGame,
                     AvgPlayTimeInMin = model.AvgPlayTimeInMin,
-                    StorageArea = model.StorageArea
+                    PublishYear = model.PublishYear
 
                 };
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.CardGames.Add(entity);
-                return ctx.SaveChanges() == 1;
+               return ctx.SaveChanges() == 1;
             }
         }
         public IEnumerable<GameListItem> GetCardGame()
@@ -50,6 +51,7 @@ namespace HomeGameTracker
                                 {
                                     GameId = e.GameId,
                                     GameName = e.GameName,
+                                    Genre = e.Genre,
                                     AgeRating = e.AgeRating,
                                     NumberOfPlayers = e.NumberOfPlayers,
                                     NumberOfCards = e.NumberOfCards,
@@ -76,6 +78,7 @@ namespace HomeGameTracker
                     {
                         GameId = entity.GameId,
                         GameName = entity.GameName,
+                        Genre = entity.Genre,
                         AgeRating = entity.AgeRating,
                         NumberOfPlayers = entity.NumberOfPlayers,
                         NumberOfCards = entity.NumberOfCards,

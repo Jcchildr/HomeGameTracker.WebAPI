@@ -91,6 +91,10 @@
     <Compile Include="Migrations\202105280110234_cardgame.Designer.cs">
       <DependentUpon>202105280110234_cardgame.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106021644438_storageArea.cs" />
+    <Compile Include="Migrations\202106021644438_storageArea.Designer.cs">
+      <DependentUpon>202106021644438_storageArea.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StorageArea.cs" />
@@ -103,6 +107,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202105280110234_cardgame.resx">
       <DependentUpon>202105280110234_cardgame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106021644438_storageArea.resx">
+      <DependentUpon>202106021644438_storageArea.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
