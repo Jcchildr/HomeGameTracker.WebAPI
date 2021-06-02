@@ -29,7 +29,7 @@ namespace HomeGameTracker
                     IsGamblingGame = model.IsGamblingGame,
                     AvgPlayTimeInMin = model.AvgPlayTimeInMin,
                     StorageArea = model.StorageArea
-                    
+
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -55,7 +55,7 @@ namespace HomeGameTracker
                                     NumberOfCards = e.NumberOfCards,
                                     ExtraEquipmentUsed = e.ExtraEquipmentUsed,
                                     IsGamblingGame = e.IsGamblingGame,
-                                    AvgPlayTimeInMin =e.AvgPlayTimeInMin
+                                    AvgPlayTimeInMin = e.AvgPlayTimeInMin
                                 }
                         );
 
