@@ -21,7 +21,7 @@ namespace HomeGameTracker
                 {
                     GameName = model.GameName,
                     AgeRating = model.AgeRating,
-                    NumberOfPlayers = model.PublishDate,
+                    NumberOfPlayers = model.NumberOfPlayers,
                     TeamGame = model.TeamGame,
                     StorageId = model.StorageId,
                     NumberOfCards = model.NumberOfCards,
