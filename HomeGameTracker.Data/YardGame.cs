@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HomeGameTracker.Data
 {
-    public class YardGame
+    public class YardGame : Game
     {
         public String SurfaceType { get; set; }
         public Boolean BallGame { get; set; }

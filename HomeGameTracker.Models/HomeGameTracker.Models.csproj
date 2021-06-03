@@ -59,6 +59,7 @@
     <Compile Include="VideoGameCreate.cs" />
     <Compile Include="VideoGameList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="YardGameCreate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -210,6 +210,7 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\StorageAreaController.cs" />
     <Compile Include="Controllers\VideoGameController.cs" />
+    <Compile Include="Controllers\YardGameController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

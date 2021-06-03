@@ -57,6 +57,7 @@
     <Compile Include="StorageAreaService.cs" />
     <Compile Include="VideoGameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="YardGameService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
