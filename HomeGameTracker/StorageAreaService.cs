@@ -15,7 +15,8 @@ namespace HomeGameTracker
             var entity =
                 new StorageArea()//Creating an instance of a new StorageArea
                 {
-                    NameOfStorageArea = model.NameOfStorageArea
+                    NameOfStorageArea = model.NameOfStorageArea,
+                    GameType = model.GameType,
                 };
             using (var ctx = new ApplicationDbContext())//Saving the created storage to the database 
             {
@@ -23,5 +24,25 @@ namespace HomeGameTracker
                 return ctx.SaveChanges() == 1;
             }
         }//End public CreateStorageArea
+
+        public IEnumerable<StorageAreaList> GetStorageArea()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .StorageAreas
+                        .Select(
+                            e =>
+                                new StorageAreaList
+                                {
+                                    StorageAreaId = e.StorageAreaId,
+                                    NameOfStorageArea = e.NameOfStorageArea,
+                                    GameType = e.GameType,
+                                }
+                            );
+                return query.ToArray();
+            }
+        }
     }
 }

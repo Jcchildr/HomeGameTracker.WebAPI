@@ -34,7 +34,7 @@ namespace HomeGameTracker
             }
         }//End public CreateVideoGame
 
-        public IEnumerable<VideoGameListItem> GetVideoGames()
+        public IEnumerable<VideoGameList> GetVideoGames()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -43,7 +43,7 @@ namespace HomeGameTracker
                         .VideoGames
                         .Select(
                             e =>
-                                new VideoGameListItem
+                                new VideoGameList
                                 {
                                     GameId = e.GameId,
                                     GameName = e.GameName,

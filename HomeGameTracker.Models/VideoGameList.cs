@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HomeGameTracker.Models
 {
-    public class VideoGameListItem
+    public class VideoGameList
     {
         //returning information on the game when it's part of a list
         [Display(Name = "Game Id")]
