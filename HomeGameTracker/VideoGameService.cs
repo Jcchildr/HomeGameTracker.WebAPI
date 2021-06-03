@@ -29,6 +29,7 @@ namespace HomeGameTracker
             using (var ctx = new ApplicationDbContext())//Saving the created game to the database 
             {
                 ctx.VideoGames.Add(entity);
+                ctx.Games.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }//End public CreateVideoGame
