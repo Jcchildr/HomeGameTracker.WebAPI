@@ -13,6 +13,8 @@ namespace HomeGameTracker.Data
         public int StorageAreaId { get; set; }
         [Required]
         public string NameOfStorageArea { get; set; }
+        [Required]
+        public string GameType { get; set; }
 
         public virtual ICollection<Game> ListOfGames { get; set; }
         public StorageArea()
