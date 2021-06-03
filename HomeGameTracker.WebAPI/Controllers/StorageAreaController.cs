@@ -11,12 +11,12 @@ namespace HomeGameTracker.WebAPI.Controllers
     [Authorize]
     public class StorageAreaController : ApiController
     {
-        /*public IHttpActionResult Get()
+        public IHttpActionResult Get()
         {
             StorageAreaService storageAreaService = CreateStorageAreaService();
             var storageAreas = storageAreaService.GetStorageArea();
             return Ok(storageAreas);
-        }*/
+        }
 
         public IHttpActionResult Post(StorageAreaCreate storageArea)
         {
