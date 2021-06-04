@@ -33,7 +33,7 @@ namespace HomeGameTracker
                 ctx.YardGames.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
-        }//End public CreateVideoGame
+        }//end of method CreateYardGame
 
         //now lets have a get all
 
@@ -63,7 +63,12 @@ namespace HomeGameTracker
             }//end of using 
         }//end of method getYardGames
 
+        //need a get by id
 
+        //need an edit
+
+
+        //need a delete
 
 
 

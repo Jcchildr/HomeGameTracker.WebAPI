@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace HomeGameTracker.Models
 {
-    public class YardGameCreate
+    public class BoardGameCreate
     {
+
         [Required]
         public string GameName { get; set; }
         [Required]
@@ -23,17 +24,12 @@ namespace HomeGameTracker.Models
         public bool TeamGame { get; set; }
         [Required]
         public int StorageId { get; set; }
-
-        //specific attributes of YardGame
+        //specific attributes of BoardGame
         [Required]
-        public string SurfaceType { get; set; }
+        public int AveragePlayTimeMin { get; set; }
         [Required]
-        public bool BallGame { get; set; }
-        [Required]
-        public int AreaOfPlayInFt {get;set;}
+        public string GameBoardType { get; set; }
 
 
-
-
-    }//end of class YardGameCreate
+    }//end of class BoardGameCreate
 }
