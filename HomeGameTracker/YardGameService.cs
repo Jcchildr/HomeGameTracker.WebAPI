@@ -31,14 +31,37 @@ namespace HomeGameTracker
             using (var ctx = new ApplicationDbContext())//create DbContext to add an entity
             {
                 ctx.YardGames.Add(entity);
-                //ctx.Games.Add(entity);//trying to not do this
                 return ctx.SaveChanges() == 1;
             }
         }//End public CreateVideoGame
 
         //now lets have a get all
 
+        public IEnumerable<YardGameList> GetYardGames()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .YardGames
+                        .Select(
+                            e =>
+                                new YardGameList
+                                {
+                                    GameId = e.GameId,
+                                    GameName = e.GameName,
+                                    NumberOfPlayers = e.NumberOfPlayers,
+                                    Genre = e.Genre,
+                                    NameOfStorageArea = e.StorageArea.NameOfStorageArea,
+                                    SurfaceType = e.SurfaceType,
+                                    BallGame = e.BallGame,
+                                    AreaOfPlayInFt = e.AreaOfPlayInFt
 
+                                }
+                            );
+                return query.ToArray();
+            }//end of using 
+        }//end of method getYardGames
 
 
 

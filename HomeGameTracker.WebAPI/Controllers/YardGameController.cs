@@ -28,10 +28,26 @@ namespace HomeGameTracker.WebAPI.Controllers
 
             //now that the service exists, return an error if we can't create the yardGame
 
+            if (!service.CreateYardGame(yardGame))
+            {
+                return InternalServerError();
+            }//end of if doesnt save
+            //to get here it had to work soo
+            return Ok();
+
         }//end of method Post
 
+        //now we need a get method to get all
+        public IHttpActionResult Get()
+        {
 
 
+            YardGameService service = new YardGameService();
+            var yardGames = service.GetYardGames();
+            return Ok(yardGames);
+
+
+        }//end of method get to get all
 
 
     }//end of class YardGameController

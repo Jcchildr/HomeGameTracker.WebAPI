@@ -88,9 +88,9 @@
     <Compile Include="CardGame.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202106030115425_InitialMigration.cs" />
-    <Compile Include="Migrations\202106030115425_InitialMigration.Designer.cs">
-      <DependentUpon>202106030115425_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202106040207305_addingYardBoard.cs" />
+    <Compile Include="Migrations\202106040207305_addingYardBoard.Designer.cs">
+      <DependentUpon>202106040207305_addingYardBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,8 +103,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106030115425_InitialMigration.resx">
-      <DependentUpon>202106030115425_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106040207305_addingYardBoard.resx">
+      <DependentUpon>202106040207305_addingYardBoard.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
