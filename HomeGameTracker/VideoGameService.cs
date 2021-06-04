@@ -29,11 +29,12 @@ namespace HomeGameTracker
             using (var ctx = new ApplicationDbContext())//Saving the created game to the database 
             {
                 ctx.VideoGames.Add(entity);
+                ctx.Games.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }//End public CreateVideoGame
 
-        public IEnumerable<VideoGameListItem> GetVideoGames()
+        public IEnumerable<VideoGameList> GetVideoGames()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -42,7 +43,7 @@ namespace HomeGameTracker
                         .VideoGames
                         .Select(
                             e =>
-                                new VideoGameListItem
+                                new VideoGameList
                                 {
                                     GameId = e.GameId,
                                     GameName = e.GameName,

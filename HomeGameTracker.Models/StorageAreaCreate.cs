@@ -11,6 +11,8 @@ namespace HomeGameTracker.Models
     {
         [Required]
         public string NameOfStorageArea { get; set; }
+        [Required]
+        public string GameType { get; set; }
 
     }
 }
