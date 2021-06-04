@@ -34,7 +34,7 @@ namespace HomeGameTracker.Data
             return new ApplicationDbContext();
 
         }
-        public DbSet<Game> Games { get; set; }
+        //public DbSet<Game> Games { get; set; }
         public DbSet<VideoGame> VideoGames { get; set;}
         public DbSet<StorageArea> StorageAreas { get; set;}
 
