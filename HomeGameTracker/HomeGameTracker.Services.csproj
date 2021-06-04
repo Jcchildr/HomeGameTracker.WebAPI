@@ -54,11 +54,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardGameService.cs" />
+    <Compile Include="StorageAreaService.cs" />
+    <Compile Include="VideoGameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HomeGameTracker.Data\HomeGameTracker.Data.csproj">
+      <Project>{BB185D90-41D6-4AC3-B90B-97FEF4CAC048}</Project>
+      <Name>HomeGameTracker.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HomeGameTracker.Models\HomeGameTracker.Models.csproj">
+      <Project>{5E954615-E54E-4790-AF82-6F58887B5CDD}</Project>
+      <Name>HomeGameTracker.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
