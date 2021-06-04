@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardGameService.cs" />
     <Compile Include="StorageAreaService.cs" />
     <Compile Include="VideoGameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

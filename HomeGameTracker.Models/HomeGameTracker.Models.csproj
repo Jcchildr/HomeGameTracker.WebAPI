@@ -54,6 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardGameCreate.cs" />
+    <Compile Include="CardGameDetail.cs" />
+    <Compile Include="CardGameEdit.cs" />
+    <Compile Include="GameListItem.cs" />
     <Compile Include="StorageAreaList.cs" />
     <Compile Include="StorageAreaCreate.cs" />
     <Compile Include="VideoGameCreate.cs" />
