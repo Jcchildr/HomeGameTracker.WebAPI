@@ -87,9 +87,9 @@
     <Compile Include="CardGame.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202106032326024_initial.cs" />
-    <Compile Include="Migrations\202106032326024_initial.Designer.cs">
-      <DependentUpon>202106032326024_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202106061805074_InitialMigration.cs" />
+    <Compile Include="Migrations\202106061805074_InitialMigration.Designer.cs">
+      <DependentUpon>202106061805074_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,8 +101,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106032326024_initial.resx">
-      <DependentUpon>202106032326024_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106061805074_InitialMigration.resx">
+      <DependentUpon>202106061805074_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

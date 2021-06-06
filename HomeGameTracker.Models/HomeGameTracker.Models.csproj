@@ -54,6 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VideoGameStorageDetail.cs" />
+    <Compile Include="StorageAreaDetail.cs" />
     <Compile Include="VideoGameEdit.cs" />
     <Compile Include="VideoGameDetail.cs" />
     <Compile Include="StorageAreaList.cs" />

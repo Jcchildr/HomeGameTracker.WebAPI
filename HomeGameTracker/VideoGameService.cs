@@ -18,7 +18,7 @@ namespace HomeGameTracker
                 {
                     GameName = model.GameName,
                     AgeRating = model.AgeRating,
-                    NumberOfPlayers = model.NumberOfPlayers,
+                    MaxNumberOfPlayers = model.MaxNumberOfPlayers,
                     PublishYear = model.PublishYear,
                     TeamGame = model.TeamGame,
                     ConsoleType = model.ConsoleType,
@@ -29,7 +29,7 @@ namespace HomeGameTracker
             using (var ctx = new ApplicationDbContext())//Saving the created game to the database 
             {
                 //ctx.Games.Add(entity);
-                ctx.VideoGames.Add(entity);
+                ctx.VideoGames.Add(entity);//Adding game to DataBase
                 return ctx.SaveChanges() == 1;
             }
         }//End public CreateVideoGame
@@ -48,7 +48,7 @@ namespace HomeGameTracker
                                     GameId = e.GameId,
                                     GameName = e.GameName,
                                     AgeRating = e.AgeRating,
-                                    NumberOfPlayers = e.NumberOfPlayers,
+                                    MaxNumberOfPlayers = e.MaxNumberOfPlayers,
                                     PublishYear = e.PublishYear,
                                     Genre = e.Genre,
                                     ConsoleType = e.ConsoleType,
@@ -75,11 +75,12 @@ namespace HomeGameTracker
                         GameName = entity.GameName,
                         PublishYear = entity.PublishYear,
                         AgeRating = entity.AgeRating,
-                        NumberOfPlayers = entity.NumberOfPlayers,
+                        MaxNumberOfPlayers = entity.MaxNumberOfPlayers,
                         TeamGame = entity.TeamGame,
                         Genre = entity.Genre,
                         ConsoleType = entity.ConsoleType,
                         OnlineGamePlay = entity.OnlineGamePlay,
+                        StorageAreaId = entity.StorageArea.StorageAreaId,
                         NameOfStorageArea = entity.StorageArea.NameOfStorageArea,
                     };
             }
@@ -97,7 +98,7 @@ namespace HomeGameTracker
                 entity.GameName = model.GameName;
                 entity.PublishYear = model.PublishYear;
                 entity.AgeRating = model.AgeRating;
-                entity.NumberOfPlayers = model.NumberOfPlayers;
+                entity.MaxNumberOfPlayers = model.MaxNumberOfPlayers;
                 entity.TeamGame = model.TeamGame;
                 entity.Genre = model.Genre;
                 entity.ConsoleType = model.ConsoleType;
@@ -121,5 +122,22 @@ namespace HomeGameTracker
                 return ctx.SaveChanges() == 1;
             }
         }//End of DeleteVideoGame
+
+        public IEnumerable<VideoGameStorageDetail> GetAllVideoGamesByStorageId(int storageId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var foundItems =
+               ctx.StorageAreas.Single(s => s.StorageAreaId == storageId).ListOfVideoGames
+               .Select(e => new VideoGameStorageDetail
+               {
+                   GameId = e.GameId,
+                   GameName = e.GameName,
+               }
+               );
+                return foundItems.ToArray();
+            }
+
+        }//End of public GetAllVideoGamesByStorageId
     }//End of VideoGameService
 }

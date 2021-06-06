@@ -20,7 +20,7 @@ namespace HomeGameTracker.Models
         [Display(Name = "Age Range")]
         public int AgeRating { get; set; }
         [Display(Name = "Number Of Players")]
-        public int NumberOfPlayers { get; set; }
+        public int MaxNumberOfPlayers { get; set; }
         [Display(Name = "Name of Console")]
         public string ConsoleType { get; set; }
         [Display(Name = "Genre of game")]

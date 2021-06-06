@@ -13,7 +13,7 @@ namespace HomeGameTracker.Models
         public int GameId { get; set; }
         public string GameName { get; set; }
         public int AgeRating { get; set; }
-        public int NumberOfPlayers { get; set; }
+        public int MaxNumberOfPlayers { get; set; }
         public int PublishYear { get; set; }
         public string Genre { get; set; }
         public bool TeamGame { get; set; }

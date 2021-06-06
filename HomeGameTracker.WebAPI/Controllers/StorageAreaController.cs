@@ -14,7 +14,7 @@ namespace HomeGameTracker.WebAPI.Controllers
         public IHttpActionResult Get()
         {
             StorageAreaService storageAreaService = CreateStorageAreaService();
-            var storageAreas = storageAreaService.GetStorageArea();
+            var storageAreas = storageAreaService.GetAllStorageAreas();
             return Ok(storageAreas);
         }
 
@@ -37,5 +37,14 @@ namespace HomeGameTracker.WebAPI.Controllers
             var storageAreaService = new StorageAreaService();
             return storageAreaService;
         }
+
+        public IHttpActionResult Get(int id)
+        {
+            StorageAreaService storageAreaService = CreateStorageAreaService();
+            var storageArea = storageAreaService.GetStorageAreaById(id);
+            return Ok(storageArea);
+        }
+
+       
     }
 }

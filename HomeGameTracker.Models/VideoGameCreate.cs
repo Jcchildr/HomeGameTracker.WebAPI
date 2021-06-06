@@ -14,7 +14,7 @@ namespace HomeGameTracker.Models
         [Required]
         public int AgeRating { get; set; }
         [Required]
-        public int NumberOfPlayers { get; set; }
+        public int MaxNumberOfPlayers { get; set; }
         [Required]
         public int PublishYear { get; set; }
         [Required]

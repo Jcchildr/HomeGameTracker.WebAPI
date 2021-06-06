@@ -3,10 +3,60 @@ namespace HomeGameTracker.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial : DbMigration
+    public partial class InitialMigration : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.CardGame",
+                c => new
+                    {
+                        GameId = c.Int(nullable: false, identity: true),
+                        NumberOfCards = c.String(nullable: false),
+                        ExtraEquipmentUsed = c.String(nullable: false),
+                        IsGamblingGame = c.Boolean(nullable: false),
+                        AvgPlayTimeInMin = c.Int(nullable: false),
+                        GameName = c.String(nullable: false),
+                        AgeRating = c.Int(nullable: false),
+                        MaxNumberOfPlayers = c.Int(nullable: false),
+                        PublishYear = c.Int(nullable: false),
+                        TeamGame = c.Boolean(nullable: false),
+                        Genre = c.String(nullable: false),
+                        StorageId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.GameId)
+                .ForeignKey("dbo.StorageArea", t => t.StorageId, cascadeDelete: true)
+                .Index(t => t.StorageId);
+            
+            CreateTable(
+                "dbo.StorageArea",
+                c => new
+                    {
+                        StorageAreaId = c.Int(nullable: false, identity: true),
+                        NameOfStorageArea = c.String(nullable: false),
+                        GameType = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.StorageAreaId);
+            
+            CreateTable(
+                "dbo.VideoGame",
+                c => new
+                    {
+                        GameId = c.Int(nullable: false, identity: true),
+                        ConsoleType = c.String(nullable: false),
+                        OnlineGamePlay = c.Boolean(nullable: false),
+                        GameName = c.String(nullable: false),
+                        AgeRating = c.Int(nullable: false),
+                        MaxNumberOfPlayers = c.Int(nullable: false),
+                        PublishYear = c.Int(nullable: false),
+                        TeamGame = c.Boolean(nullable: false),
+                        Genre = c.String(nullable: false),
+                        StorageId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.GameId)
+                .ForeignKey("dbo.StorageArea", t => t.StorageId, cascadeDelete: true)
+                .Index(t => t.StorageId);
+            
             CreateTable(
                 "dbo.IdentityRole",
                 c => new
@@ -30,40 +80,6 @@ namespace HomeGameTracker.Data.Migrations
                 .ForeignKey("dbo.ApplicationUser", t => t.ApplicationUser_Id)
                 .Index(t => t.IdentityRole_Id)
                 .Index(t => t.ApplicationUser_Id);
-            
-            CreateTable(
-                "dbo.StorageArea",
-                c => new
-                    {
-                        StorageAreaId = c.Int(nullable: false, identity: true),
-                        NameOfStorageArea = c.String(nullable: false),
-                        GameType = c.String(nullable: false),
-                    })
-                .PrimaryKey(t => t.StorageAreaId);
-            
-            CreateTable(
-                "dbo.Game",
-                c => new
-                    {
-                        GameId = c.Int(nullable: false, identity: true),
-                        GameName = c.String(nullable: false),
-                        AgeRating = c.Int(nullable: false),
-                        NumberOfPlayers = c.Int(nullable: false),
-                        PublishYear = c.Int(nullable: false),
-                        TeamGame = c.Boolean(nullable: false),
-                        Genre = c.String(nullable: false),
-                        StorageId = c.Int(nullable: false),
-                        NumberOfCards = c.String(),
-                        ExtraEquipmentUsed = c.String(),
-                        IsGamblingGame = c.Boolean(),
-                        AvgPlayTimeInMin = c.Int(),
-                        ConsoleType = c.String(),
-                        OnlineGamePlay = c.Boolean(),
-                        Discriminator = c.String(nullable: false, maxLength: 128),
-                    })
-                .PrimaryKey(t => t.GameId)
-                .ForeignKey("dbo.StorageArea", t => t.StorageId, cascadeDelete: true)
-                .Index(t => t.StorageId);
             
             CreateTable(
                 "dbo.ApplicationUser",
@@ -118,20 +134,23 @@ namespace HomeGameTracker.Data.Migrations
             DropForeignKey("dbo.IdentityUserRole", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
-            DropForeignKey("dbo.Game", "StorageId", "dbo.StorageArea");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
+            DropForeignKey("dbo.CardGame", "StorageId", "dbo.StorageArea");
+            DropForeignKey("dbo.VideoGame", "StorageId", "dbo.StorageArea");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
-            DropIndex("dbo.Game", new[] { "StorageId" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
+            DropIndex("dbo.VideoGame", new[] { "StorageId" });
+            DropIndex("dbo.CardGame", new[] { "StorageId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
-            DropTable("dbo.Game");
-            DropTable("dbo.StorageArea");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
+            DropTable("dbo.VideoGame");
+            DropTable("dbo.StorageArea");
+            DropTable("dbo.CardGame");
         }
     }
 }

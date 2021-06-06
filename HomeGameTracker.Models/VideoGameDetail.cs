@@ -18,8 +18,8 @@ namespace HomeGameTracker.Models
         public int PublishYear { get; set; }
         [Display(Name = "Age Range")]
         public int AgeRating { get; set; }
-        [Display(Name = "Number Of Players")]
-        public int NumberOfPlayers { get; set; }
+        [Display(Name = "Maximum Number Of Players")]
+        public int MaxNumberOfPlayers { get; set; }
         [Display(Name = "Team Game?")]
         public bool TeamGame { get; set; }
         [Display(Name = "Genre of game")]
@@ -28,6 +28,8 @@ namespace HomeGameTracker.Models
         public string ConsoleType { get; set; }
         [Display(Name = "Online Gameplay?")]
         public bool OnlineGamePlay { get; set; }
+        [Display(Name = "Storage Id")]
+        public int StorageAreaId { get; set; }
         [Display(Name = "Storage Area")]
         public string NameOfStorageArea { get; set; }
     }
