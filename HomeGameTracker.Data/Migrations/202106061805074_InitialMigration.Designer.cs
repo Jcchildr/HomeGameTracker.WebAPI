@@ -13,7 +13,7 @@ namespace HomeGameTracker.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202106030115425_InitialMigration"; }
+            get { return "202106061805074_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source
