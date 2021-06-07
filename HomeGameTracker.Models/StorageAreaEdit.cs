@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace HomeGameTracker.Models
 {
-    public class StorageAreaEdit
+    public class StorageAreaCreate
     {
-        [Required]
-        public int StorageAreaId { get; set; }
         [Required]
         public string NameOfStorageArea { get; set; }
         [Required]

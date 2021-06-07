@@ -74,7 +74,36 @@ namespace HomeGameTracker
                         GameCount = entity.ListOfVideoGames.Count
                     };
             }
-        }
-     
-    }
+        }// End public class GetStorageAreaById
+
+        public bool UpdateStorageArea(StorageAreaEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .StorageAreas
+                        .Single(e => e.StorageAreaId == model.StorageAreaId);
+
+                entity.NameOfStorageArea = model.NameOfStorageArea;
+                entity.GameType = model.GameType;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }// End UpdateStorageArea
+        public bool DeleteStorageArea(int storageId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .StorageAreas
+                        .Single(e => e.StorageAreaId == storageId);
+
+                ctx.StorageAreas.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }//End of DeleteStorageArea
+    }// End public class StorageAreaService
 }
