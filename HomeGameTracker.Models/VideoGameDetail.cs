@@ -20,6 +20,8 @@ namespace HomeGameTracker.Models
         public int AgeRating { get; set; }
         [Display(Name = "Maximum Number Of Players")]
         public int MaxNumberOfPlayers { get; set; }
+        [Display(Name = "Minimum Number Of Players")]
+        public int MinNumberOfPlayers { get; set; }
         [Display(Name = "Team Game?")]
         public bool TeamGame { get; set; }
         [Display(Name = "Genre of game")]
