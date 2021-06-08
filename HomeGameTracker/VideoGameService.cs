@@ -61,12 +61,7 @@ namespace HomeGameTracker
                 return query.ToArray();
             }
         }// End GetVideoGames
-
-        public object GetAllGamesByStorageId(int storageId)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public VideoGameDetail GetVideoGameById(int id)
         {
             using (var ctx = new ApplicationDbContext())
