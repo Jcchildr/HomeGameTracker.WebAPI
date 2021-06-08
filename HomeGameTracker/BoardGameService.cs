@@ -1,10 +1,7 @@
 ﻿using HomeGameTracker.Data;
 using HomeGameTracker.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HomeGameTracker
 {
@@ -21,7 +18,8 @@ namespace HomeGameTracker
                 {
                     GameName = model.GameName,
                     AgeRating = model.AgeRating,
-                    NumberOfPlayers = model.NumberOfPlayers,
+                    MinNumberOfPlayers = model.MinNumberOfPlayers,
+                    MaxNumberOfPlayers = model.MaxNumberOfPlayers,
                     PublishYear = model.PublishYear,
                     TeamGame = model.TeamGame,
                     Genre = model.Genre,
@@ -54,7 +52,8 @@ namespace HomeGameTracker
                       {
                           GameId = e.GameId,
                           GameName = e.GameName,
-                          NumberOfPlayers = e.NumberOfPlayers,
+                          MaxNumberOfPlayers = e.MaxNumberOfPlayers,
+                          MinNumberOfPlayers = e.MaxNumberOfPlayers,
                           Genre = e.Genre,
                           NameOfStorageArea = e.StorageArea.NameOfStorageArea,
                           AveragePlayTimeMin = e.AveragePlayTimeMin,

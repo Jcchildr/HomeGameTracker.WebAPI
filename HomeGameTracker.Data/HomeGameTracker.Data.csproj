@@ -88,14 +88,7 @@
     <Compile Include="CardGame.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202106040207305_addingYardBoard.cs" />
-    <Compile Include="Migrations\202106040207305_addingYardBoard.Designer.cs">
-      <DependentUpon>202106040207305_addingYardBoard.cs</DependentUpon>
-    <Compile Include="Migrations\202106081535409_newInitialMigrationWithMinPlayers.cs" />
-    <Compile Include="Migrations\202106081535409_newInitialMigrationWithMinPlayers.Designer.cs">
-      <DependentUpon>202106081535409_newInitialMigrationWithMinPlayers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StorageArea.cs" />
     <Compile Include="VideoGame.cs" />
@@ -105,12 +98,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106040207305_addingYardBoard.resx">
-      <DependentUpon>202106040207305_addingYardBoard.cs</DependentUpon>
-    <EmbeddedResource Include="Migrations\202106081535409_newInitialMigrationWithMinPlayers.resx">
-      <DependentUpon>202106081535409_newInitialMigrationWithMinPlayers.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
+
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

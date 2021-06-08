@@ -19,7 +19,8 @@ namespace HomeGameTracker
                 {
                     GameName = model.GameName,
                     AgeRating = model.AgeRating,
-                    NumberOfPlayers = model.NumberOfPlayers,
+                    MaxNumberOfPlayers = model.MaxNumberOfPlayers,
+                    MinNumberOfPlayers = model.MinNumberOfPlayers,
                     PublishYear = model.PublishYear,
                     TeamGame = model.TeamGame,
                     SurfaceType = model.SurfaceType,
@@ -50,7 +51,8 @@ namespace HomeGameTracker
                                 {
                                     GameId = e.GameId,
                                     GameName = e.GameName,
-                                    NumberOfPlayers = e.NumberOfPlayers,
+                                    MaxNumberOfPlayers = e.MaxNumberOfPlayers,
+                                    MinNumberOfPlayers = e.MinNumberOfPlayers,
                                     Genre = e.Genre,
                                     NameOfStorageArea = e.StorageArea.NameOfStorageArea,
                                     SurfaceType = e.SurfaceType,

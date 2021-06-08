@@ -79,7 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HomeGameTracker.Data\HomeGameTracker.Data.csproj">
-      <Project>{BB185D90-41D6-4AC3-B90B-97FEF4CAC048}</Project>
+      <Project>{bb185d90-41d6-4ac3-b90b-97fef4cac048}</Project>
       <Name>HomeGameTracker.Data</Name>
     </ProjectReference>
   </ItemGroup>

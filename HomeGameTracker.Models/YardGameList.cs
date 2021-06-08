@@ -17,8 +17,10 @@ namespace HomeGameTracker.Models
         public int GameId { get; set; }
         [Display(Name = "Title")]
         public string GameName { get; set; }
-        [Display(Name = "Number Of Players")]
-        public int NumberOfPlayers { get; set; }
+        [Display(Name = "Maximum Number Of Players")]
+        public int MaxNumberOfPlayers { get; set; }
+        [Display(Name = "Minimum Number Of Players")]
+        public int MinNumberOfPlayers { get; set; }
         [Display(Name = "Genre of game")]
         public string Genre { get; set; }
         [Display(Name = "Storage Area")]
