@@ -8,57 +8,71 @@ using System.Threading.Tasks;
 
 namespace HomeGameTracker
 {
-    public class VideoGameService
+    public class YardGameService
     {
-       
-        public bool CreateVideoGame(VideoGameCreate model)
+        //start with our create method
+
+        public bool CreateYardGame(YardGameCreate model)
         {
             var entity =
-                new VideoGame()//Creating an instance of a new VideoGame
+                new YardGame()//Creating an instance of a new YardGame
                 {
                     GameName = model.GameName,
                     AgeRating = model.AgeRating,
                     NumberOfPlayers = model.NumberOfPlayers,
                     PublishYear = model.PublishYear,
                     TeamGame = model.TeamGame,
-                    ConsoleType = model.ConsoleType,
-                    OnlineGamePlay = model.OnlineGamePlay,
+                    SurfaceType = model.SurfaceType,
+                    BallGame = model.BallGame,
+                    AreaOfPlayInFt = model.AreaOfPlayInFt,
                     Genre = model.Genre,
                     StorageId = model.StorageId,
                 };
-            using (var ctx = new ApplicationDbContext())//Saving the created game to the database 
+            using (var ctx = new ApplicationDbContext())//create DbContext to add an entity
             {
-                ctx.VideoGames.Add(entity);
-                //ctx.Games.Add(entity);
+                ctx.YardGames.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
-        }//End public CreateVideoGame
+        }//end of method CreateYardGame
 
-        public IEnumerable<VideoGameList> GetVideoGames()
+        //now lets have a get all
+
+        public IEnumerable<YardGameList> GetYardGames()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                        .VideoGames
+                        .YardGames
                         .Select(
                             e =>
-                                new VideoGameList
+                                new YardGameList
                                 {
                                     GameId = e.GameId,
                                     GameName = e.GameName,
-                                    AgeRating= e.AgeRating,
-                                    PublishYear = e.PublishYear,
                                     NumberOfPlayers = e.NumberOfPlayers,
-                                    ConsoleType = e.ConsoleType,
                                     Genre = e.Genre,
                                     NameOfStorageArea = e.StorageArea.NameOfStorageArea,
+                                    SurfaceType = e.SurfaceType,
+                                    BallGame = e.BallGame,
+                                    AreaOfPlayInFt = e.AreaOfPlayInFt
 
                                 }
                             );
                 return query.ToArray();
-            }
-        }
+            }//end of using 
+        }//end of method getYardGames
 
-    }
+        //need a get by id
+
+        //need an edit
+
+
+        //need a delete
+
+
+
+
+
+    }//end of YardGameService
 }
