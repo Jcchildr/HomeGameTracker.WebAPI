@@ -19,8 +19,10 @@ namespace HomeGameTracker.Models
         public int PublishYear { get; set; }
         [Display(Name = "Age Range")]
         public int AgeRating { get; set; }
-        [Display(Name = "Number Of Players")]
+        [Display(Name = "Maximum Number Of Players")]
         public int MaxNumberOfPlayers { get; set; }
+        [Display(Name = "Minimum Number Of Players")]
+        public int MinNumberOfPlayers { get; set; }
         [Display(Name = "Name of Console")]
         public string ConsoleType { get; set; }
         [Display(Name = "Genre of game")]
