@@ -7,15 +7,12 @@ using System.Threading.Tasks;
 
 namespace HomeGameTracker.Models
 {
-    public class StorageAreaList
+    public class StorageAreaCreate
     {
-        [Display(Name = "Storage Id")]
-        public int StorageAreaId { get; set; }
-        [Display(Name = "Storage Area Name")]
+        [Required]
         public string NameOfStorageArea { get; set; }
-        [Display(Name = "Game Type Stored")]
+        [Required]
         public string GameType { get; set; }
-        [Display(Name = "Number of Games Stored")]
-        public int GameCount { get; set; }
+
     }
 }

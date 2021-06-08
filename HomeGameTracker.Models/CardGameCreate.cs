@@ -1,13 +1,14 @@
-﻿using System;
+﻿using HomeGameTracker.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeGameTracker.Data
+namespace HomeGameTracker.Models
 {
-    public class CardGame : Game
+    public class CardGameCreate : Game
     {
         [Required]
         public string NumberOfCards { get; set; }
@@ -17,5 +18,5 @@ namespace HomeGameTracker.Data
         public bool IsGamblingGame { get; set; }
         [Required]
         public int AvgPlayTimeInMin { get; set; }
-    }//end of class CardGame
+    }
 }

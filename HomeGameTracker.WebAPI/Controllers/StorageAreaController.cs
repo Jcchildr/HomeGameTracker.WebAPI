@@ -14,7 +14,7 @@ namespace HomeGameTracker.WebAPI.Controllers
         public IHttpActionResult Get()
         {
             StorageAreaService storageAreaService = CreateStorageAreaService();
-            var storageAreas = storageAreaService.GetStorageArea();
+            var storageAreas = storageAreaService.GetAllStorageAreas();
             return Ok(storageAreas);
         }
 
@@ -36,6 +36,35 @@ namespace HomeGameTracker.WebAPI.Controllers
         {
             var storageAreaService = new StorageAreaService();
             return storageAreaService;
+        }
+
+        public IHttpActionResult Get(int id)
+        {
+            StorageAreaService storageAreaService = CreateStorageAreaService();
+            var storageArea = storageAreaService.GetStorageAreaById(id);
+            return Ok(storageArea);
+        }
+
+        public IHttpActionResult Put(StorageAreaEdit storageArea)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateStorageAreaService();
+
+            if (!service.UpdateStorageArea(storageArea))
+                return InternalServerError();
+
+            return Ok();
+        }
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateStorageAreaService();
+
+            if (!service.DeleteStorageArea(id))
+                return InternalServerError();
+
+            return Ok();
         }
     }
 }
