@@ -22,7 +22,8 @@ namespace HomeGameTracker
                     GameName = model.GameName,
                     Genre = model.Genre,
                     AgeRating = model.AgeRating,
-                    NumberOfPlayers = model.NumberOfPlayers,
+                    MaxNumberOfPlayers = model.MaxNumberOfPlayers,
+                    MinNumberOfPlayers = model.MinNumberOfPlayers,
                     TeamGame = model.TeamGame,
                     StorageId = model.StorageId,
                     NumberOfCards = model.NumberOfCards,
@@ -53,7 +54,7 @@ namespace HomeGameTracker
                                     GameName = e.GameName,
                                     Genre = e.Genre,
                                     AgeRating = e.AgeRating,
-                                    NumberOfPlayers = e.NumberOfPlayers,
+                                    MinNumberOfPlayers = e.MinNumberOfPlayers,
                                     NumberOfCards = e.NumberOfCards,
                                     ExtraEquipmentUsed = e.ExtraEquipmentUsed,
                                     IsGamblingGame = e.IsGamblingGame,
@@ -80,7 +81,8 @@ namespace HomeGameTracker
                         GameName = entity.GameName,
                         Genre = entity.Genre,
                         AgeRating = entity.AgeRating,
-                        NumberOfPlayers = entity.NumberOfPlayers,
+                        MaxNumberOfPlayers = entity.MaxNumberOfPlayers,
+                        MinNumberOfPlayers = entity.MinNumberOfPlayers,
                         NumberOfCards = entity.NumberOfCards,
                         ExtraEquipmentUsed = entity.ExtraEquipmentUsed,
                         IsGamblingGame = entity.IsGamblingGame,
@@ -98,7 +100,8 @@ namespace HomeGameTracker
                         .Single(e => e.GameId == model.GameId);
 
                 entity.AgeRating = model.AgeRating;
-                entity.NumberOfPlayers = model.NumberOfPlayers;
+                entity.MaxNumberOfPlayers = model.MaxNumberOfPlayers;
+                entity.MinNumberOfPlayers = model.MinNumberOfPlayers;
                 entity.NumberOfCards = model.NumberOfCards;
                 entity.ExtraEquipmentUsed = model.ExtraEquipmentUsed;
                 entity.IsGamblingGame = model.IsGamblingGame;

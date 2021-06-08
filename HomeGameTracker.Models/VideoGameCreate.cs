@@ -16,6 +16,8 @@ namespace HomeGameTracker.Models
         [Required]
         public int MaxNumberOfPlayers { get; set; }
         [Required]
+        public int MinNumberOfPlayers { get; set; }
+        [Required]
         public int PublishYear { get; set; }
         [Required]
         public string Genre { get; set; }

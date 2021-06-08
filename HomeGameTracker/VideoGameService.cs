@@ -19,6 +19,7 @@ namespace HomeGameTracker
                     GameName = model.GameName,
                     AgeRating = model.AgeRating,
                     MaxNumberOfPlayers = model.MaxNumberOfPlayers,
+                    MinNumberOfPlayers = model.MinNumberOfPlayers,
                     PublishYear = model.PublishYear,
                     TeamGame = model.TeamGame,
                     ConsoleType = model.ConsoleType,

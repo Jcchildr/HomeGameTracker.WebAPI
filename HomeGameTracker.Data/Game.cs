@@ -18,6 +18,8 @@ namespace HomeGameTracker.Data
         public int AgeRating { get; set; }
         [Required]
         public int MaxNumberOfPlayers { get; set; }
+        [Required]
+        public int MinNumberOfPlayers { get; set; }
         [Required] 
         public int PublishYear { get; set; }
         [Required]

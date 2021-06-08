@@ -7,13 +7,13 @@ namespace HomeGameTracker.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class InitialMigration : IMigrationMetadata
+    public sealed partial class newInitialMigrationWithMinPlayers : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(newInitialMigrationWithMinPlayers));
         
         string IMigrationMetadata.Id
         {
-            get { return "202106061805074_InitialMigration"; }
+            get { return "202106081535409_newInitialMigrationWithMinPlayers"; }
         }
         
         string IMigrationMetadata.Source

@@ -37,9 +37,8 @@ namespace HomeGameTracker.Data
         //public DbSet<Game> Games { get; set; }
         public DbSet<VideoGame> VideoGames { get; set;}
         public DbSet<CardGame> CardGames { get; set; }
-
         public DbSet<StorageArea> StorageAreas { get; set;}
-        public DbSet<CardGame> CardGames { get; set; }
+        //public DbSet<CardGame> CardGames { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
