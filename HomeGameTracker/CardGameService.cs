@@ -36,10 +36,10 @@ namespace HomeGameTracker
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.CardGames.Add(entity);
-               return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() == 1;
             }
         }
-        public IEnumerable<GameListItem> GetCardGame()
+        public IEnumerable<CardGameListItem> GetCardGame()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -48,7 +48,7 @@ namespace HomeGameTracker
                         .CardGames
                         .Select(
                             e =>
-                                new GameListItem
+                                new CardGameListItem
                                 {
                                     GameId = e.GameId,
                                     GameName = e.GameName,
@@ -88,6 +88,32 @@ namespace HomeGameTracker
                         IsGamblingGame = entity.IsGamblingGame,
                         AvgPlayTimeInMin = entity.AvgPlayTimeInMin
                     };
+            }
+        }
+        public IEnumerable<CardGameListItem> GetGameIfGambling()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .CardGames
+                        .Select( 
+                            e =>
+
+                    new CardGameListItem
+                    {
+                        GameId = entity.GameId,
+                        GameName = entity.GameName,
+                        Genre = entity.Genre,
+                        AgeRating = entity.AgeRating,
+                        MaxNumberOfPlayers = entity.MaxNumberOfPlayers,
+                        MinNumberOfPlayers = entity.MinNumberOfPlayers,
+                        NumberOfCards = entity.NumberOfCards,
+                        ExtraEquipmentUsed = entity.ExtraEquipmentUsed,
+                        IsGamblingGame = entity.IsGamblingGame,
+                        AvgPlayTimeInMin = entity.AvgPlayTimeInMin
+                    };
+                    );
             }
         }
         public bool UpdateCardGame(CardGameEdit model)
