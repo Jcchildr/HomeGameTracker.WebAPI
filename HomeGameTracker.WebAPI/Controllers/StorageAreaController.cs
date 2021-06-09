@@ -65,6 +65,13 @@ namespace HomeGameTracker.WebAPI.Controllers
                 return InternalServerError();
 
             return Ok();
+
+        }
+        public IHttpActionResult GetGamesByStorageId(int storageId)
+        {
+            StorageAreaService service = new StorageAreaService();
+            var videoGame = service.GetAllGamesByStorageId(storageId);
+            return Ok(videoGame);
         }
     }
 }

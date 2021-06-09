@@ -16,10 +16,10 @@ namespace HomeGameTracker.Data
         [Required]
         public string GameType { get; set; }
 
-        public virtual ICollection<VideoGame> ListOfVideoGames { get; set; }
+        public virtual ICollection<Game> ListOfGames { get; set; }
         public StorageArea()
         {
-            ListOfVideoGames = new HashSet<VideoGame>();
+            ListOfGames = new HashSet<Game>();
         }
     }//end of class
 }

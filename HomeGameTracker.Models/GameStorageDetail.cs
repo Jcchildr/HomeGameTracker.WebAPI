@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HomeGameTracker.Models
 {
-    public class VideoGameStorageDetail
+    public class GameStorageDetail
     {
         [Display(Name = "Game Id")]
         public int GameId { get; set; }

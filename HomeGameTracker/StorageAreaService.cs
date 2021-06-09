@@ -39,7 +39,7 @@ namespace HomeGameTracker
                                     StorageAreaId = e.StorageAreaId,
                                     NameOfStorageArea = e.NameOfStorageArea,
                                     GameType = e.GameType,
-                                    GameCount = e.ListOfVideoGames.Count
+                                    GameCount = e.ListOfGames.Count
                                 }
                             );
                 return query.ToArray();
@@ -52,7 +52,7 @@ namespace HomeGameTracker
             {
                 var foundStorageArea = ctx.StorageAreas.Single(s => s.StorageAreaId == storageId);
                 var foundVideoGame = ctx.VideoGames.Single(v => v.GameId == videoGameId);
-                foundStorageArea.ListOfVideoGames.Add(foundVideoGame);
+                foundStorageArea.ListOfGames.Add(foundVideoGame);
                 var testing = ctx.SaveChanges();
             }
         }//End public class AddVideoGameToStorageArea
@@ -71,7 +71,7 @@ namespace HomeGameTracker
                         StorageAreaId = entity.StorageAreaId,
                         NameOfStorageArea = entity.NameOfStorageArea,
                         GameType = entity.GameType,
-                        GameCount = entity.ListOfVideoGames.Count
+                        GameCount = entity.ListOfGames.Count
                     };
             }
         }// End public class GetStorageAreaById
@@ -105,5 +105,22 @@ namespace HomeGameTracker
                 return ctx.SaveChanges() == 1;
             }
         }//End of DeleteStorageArea
+        public IEnumerable<GameStorageDetail> GetAllGamesByStorageId(int storageId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var foundItems =
+               ctx.StorageAreas.Single(s => s.StorageAreaId == storageId).ListOfGames
+               .Select(e => new GameStorageDetail
+               {
+                   GameId = e.GameId,
+                   GameName = e.GameName,
+               }
+               );
+                return foundItems.ToArray();
+            }
+
+        }//End of public GetAllGamesByStorageId
+
     }// End public class StorageAreaService
 }
