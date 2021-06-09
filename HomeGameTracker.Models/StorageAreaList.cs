@@ -9,8 +9,6 @@ namespace HomeGameTracker.Models
 {
     public class StorageAreaList
     {
-        [Display(Name = "Storage Id")]
-        public int StorageAreaId { get; set; }
         [Display(Name = "Storage Area Name")]
         public string NameOfStorageArea { get; set; }
         [Display(Name = "Game Type Stored")]

@@ -36,7 +36,6 @@ namespace HomeGameTracker
                             e =>
                                 new StorageAreaList
                                 {
-                                    StorageAreaId = e.StorageAreaId,
                                     NameOfStorageArea = e.NameOfStorageArea,
                                     GameType = e.GameType,
                                     GameCount = e.ListOfGames.Count
@@ -121,6 +120,30 @@ namespace HomeGameTracker
             }
 
         }//End of public GetAllGamesByStorageId
+
+        public IEnumerable<StorageAreaDetail> GetStorageAreasByGameType(string gameType)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var foundItems =
+                    ctx
+                        .StorageAreas
+                        .Where(e => e.GameType == gameType)
+                        .Select(
+                        e =>
+                            new StorageAreaDetail
+                            {
+                                StorageAreaId = e.StorageAreaId,
+                                NameOfStorageArea = e.NameOfStorageArea,
+                                GameType = e.GameType,
+                                GameCount = e.ListOfGames.Count
+                            }
+
+                        );
+
+                return foundItems.ToArray();
+            }
+        }// End GetStorageAreas By Game Type
 
     }// End public class StorageAreaService
 }
