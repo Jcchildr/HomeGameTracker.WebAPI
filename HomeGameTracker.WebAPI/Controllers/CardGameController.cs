@@ -36,6 +36,15 @@ namespace HomeGameTracker.WebAPI.Controllers
             var cardGame = cardGameService.GetCardGameById(id);
             return Ok(cardGame);
         }
+        public IHttpActionResult Get(CardGameDetail model)
+        {
+            CardGameService cardGameService = CreateCardGameService();
+            var cardGame = cardGameService.GetGameIfGambling(model);
+            return Ok(cardGame);
+
+
+        }
+
         public IHttpActionResult Put(CardGameEdit cardGame)
         {
             if (!ModelState.IsValid)

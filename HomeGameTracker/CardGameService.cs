@@ -90,30 +90,35 @@ namespace HomeGameTracker
                     };
             }
         }
-        public IEnumerable<CardGameListItem> GetGameIfGambling()
+        public CardGameDetail GetGameIfGambling(CardGameDetail model)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
-                    ctx
-                        .CardGames
-                        .Select( 
-                            e =>
-
-                    new CardGameListItem
+                foreach (CardGame cardGame in ctx.CardGames)
+                {
+                    if (model.IsGamblingGame == true)
                     {
-                        GameId = entity.GameId,
-                        GameName = entity.GameName,
-                        Genre = entity.Genre,
-                        AgeRating = entity.AgeRating,
-                        MaxNumberOfPlayers = entity.MaxNumberOfPlayers,
-                        MinNumberOfPlayers = entity.MinNumberOfPlayers,
-                        NumberOfCards = entity.NumberOfCards,
-                        ExtraEquipmentUsed = entity.ExtraEquipmentUsed,
-                        IsGamblingGame = entity.IsGamblingGame,
-                        AvgPlayTimeInMin = entity.AvgPlayTimeInMin
+                        return
+                        new CardGameDetail
+                        {
+                            GameId = model.GameId,
+                            GameName = model.GameName,
+                            Genre = model.Genre,
+                            AgeRating = model.AgeRating,
+                            MaxNumberOfPlayers = model.MaxNumberOfPlayers,
+                            MinNumberOfPlayers = model.MinNumberOfPlayers,
+                            NumberOfCards = model.NumberOfCards,
+                            ExtraEquipmentUsed = model.ExtraEquipmentUsed,
+                            IsGamblingGame = model.IsGamblingGame,
+                            AvgPlayTimeInMin = model.AvgPlayTimeInMin
+                        };
+                    }
+                    else
+                    {
+
                     };
-                    );
+                }
+                return null;
             }
         }
         public bool UpdateCardGame(CardGameEdit model)
