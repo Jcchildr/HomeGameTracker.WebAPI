@@ -50,6 +50,7 @@ namespace HomeGameTracker
                                     GameName = e.GameName,
                                     AgeRating = e.AgeRating,
                                     MaxNumberOfPlayers = e.MaxNumberOfPlayers,
+                                    MinNumberOfPlayers = e.MinNumberOfPlayers,
                                     PublishYear = e.PublishYear,
                                     Genre = e.Genre,
                                     ConsoleType = e.ConsoleType,
@@ -60,7 +61,7 @@ namespace HomeGameTracker
                 return query.ToArray();
             }
         }// End GetVideoGames
-
+        
         public VideoGameDetail GetVideoGameById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -77,6 +78,7 @@ namespace HomeGameTracker
                         PublishYear = entity.PublishYear,
                         AgeRating = entity.AgeRating,
                         MaxNumberOfPlayers = entity.MaxNumberOfPlayers,
+                        MinNumberOfPlayers = entity.MinNumberOfPlayers,
                         TeamGame = entity.TeamGame,
                         Genre = entity.Genre,
                         ConsoleType = entity.ConsoleType,
@@ -100,6 +102,7 @@ namespace HomeGameTracker
                 entity.PublishYear = model.PublishYear;
                 entity.AgeRating = model.AgeRating;
                 entity.MaxNumberOfPlayers = model.MaxNumberOfPlayers;
+                entity.MinNumberOfPlayers = model.MinNumberOfPlayers;
                 entity.TeamGame = model.TeamGame;
                 entity.Genre = model.Genre;
                 entity.ConsoleType = model.ConsoleType;
@@ -124,21 +127,6 @@ namespace HomeGameTracker
             }
         }//End of DeleteVideoGame
 
-        public IEnumerable<VideoGameStorageDetail> GetAllVideoGamesByStorageId(int storageId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var foundItems =
-               ctx.StorageAreas.Single(s => s.StorageAreaId == storageId).ListOfVideoGames
-               .Select(e => new VideoGameStorageDetail
-               {
-                   GameId = e.GameId,
-                   GameName = e.GameName,
-               }
-               );
-                return foundItems.ToArray();
-            }
-
-        }//End of public GetAllVideoGamesByStorageId
+     
     }//End of VideoGameService
 }

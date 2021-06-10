@@ -56,8 +56,8 @@
   <ItemGroup>
     <Compile Include="BoardGameCreate.cs" />
     <Compile Include="BoardGameList.cs" />
+    <Compile Include="GameStorageDetail.cs" />
     <Compile Include="StorageAreaEdit.cs" />
-    <Compile Include="VideoGameStorageDetail.cs" />
     <Compile Include="StorageAreaDetail.cs" />
     <Compile Include="VideoGameEdit.cs" />
     <Compile Include="VideoGameDetail.cs" />
