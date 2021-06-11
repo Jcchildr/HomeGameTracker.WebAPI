@@ -70,8 +70,15 @@ namespace HomeGameTracker.WebAPI.Controllers
         public IHttpActionResult GetGamesByStorageId(int storageId)
         {
             StorageAreaService service = new StorageAreaService();
-            var videoGame = service.GetAllGamesByStorageId(storageId);
-            return Ok(videoGame);
+            var games = service.GetAllGamesByStorageId(storageId);
+            return Ok(games);
+        }
+
+        public IHttpActionResult GetSAtorageAreasByGameType(string gameType)
+        {
+            StorageAreaService service = new StorageAreaService();
+            var storageAreas = service.GetStorageAreasByGameType(gameType);
+            return Ok(storageAreas);
         }
     }
 }
