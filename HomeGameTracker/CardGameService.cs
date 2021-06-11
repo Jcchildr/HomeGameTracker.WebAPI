@@ -36,10 +36,10 @@ namespace HomeGameTracker
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.CardGames.Add(entity);
-               return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() == 1;
             }
         }
-        public IEnumerable<GameListItem> GetCardGame()
+        public IEnumerable<CardGameListItem> GetCardGame()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -48,12 +48,13 @@ namespace HomeGameTracker
                         .CardGames
                         .Select(
                             e =>
-                                new GameListItem
+                                new CardGameListItem
                                 {
                                     GameId = e.GameId,
                                     GameName = e.GameName,
                                     Genre = e.Genre,
                                     AgeRating = e.AgeRating,
+                                    MaxNumberOfPlayers = e.MaxNumberOfPlayers,
                                     MinNumberOfPlayers = e.MinNumberOfPlayers,
                                     NumberOfCards = e.NumberOfCards,
                                     ExtraEquipmentUsed = e.ExtraEquipmentUsed,
@@ -88,6 +89,62 @@ namespace HomeGameTracker
                         IsGamblingGame = entity.IsGamblingGame,
                         AvgPlayTimeInMin = entity.AvgPlayTimeInMin
                     };
+            }
+        }
+        public IEnumerable<CardGameListItem> GetGameIfGambling(bool gamble)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .CardGames
+                        .Where(e => e.IsGamblingGame == gamble)
+                        .Select(
+                        e =>
+                            new CardGameListItem
+                            {
+                                GameId = e.GameId,
+                                GameName = e.GameName,
+                                Genre = e.Genre,
+                                AgeRating = e.AgeRating,
+                                MaxNumberOfPlayers = e.MaxNumberOfPlayers,
+                                MinNumberOfPlayers = e.MinNumberOfPlayers,
+                                NumberOfCards = e.NumberOfCards,
+                                ExtraEquipmentUsed = e.ExtraEquipmentUsed,
+                                IsGamblingGame = e.IsGamblingGame,
+                                AvgPlayTimeInMin = e.AvgPlayTimeInMin
+                            }
+                        );
+                return query.ToArray();
+
+            }
+        }
+        public IEnumerable<CardGameListItem> GetGamesWithInNumberOfPlayers(int players)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .CardGames
+                        .Where(e => e.MinNumberOfPlayers >= players && players <= e.MaxNumberOfPlayers )
+                        .Select(
+                        e =>
+                            new CardGameListItem
+                            {
+                                GameId = e.GameId,
+                                GameName = e.GameName,
+                                Genre = e.Genre,
+                                AgeRating = e.AgeRating,
+                                MaxNumberOfPlayers = e.MaxNumberOfPlayers,
+                                MinNumberOfPlayers = e.MinNumberOfPlayers,
+                                NumberOfCards = e.NumberOfCards,
+                                ExtraEquipmentUsed = e.ExtraEquipmentUsed,
+                                IsGamblingGame = e.IsGamblingGame,
+                                AvgPlayTimeInMin = e.AvgPlayTimeInMin
+                            }
+                        );
+                return query.ToArray();
+
             }
         }
         public bool UpdateCardGame(CardGameEdit model)
