@@ -65,15 +65,81 @@ namespace HomeGameTracker
             }//end of using 
         }//end of method getYardGames
 
-        //need a get by id
+        //method to get yard game by id
+        public YardGameDetail GetYardGameById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .YardGames
+                    .Single(e => e.GameId == id);
+                return
+                    new YardGameDetail
+                    {
+                        GameId = entity.GameId,
+                        GameName = entity.GameName,
+                        PublishYear = entity.PublishYear,
+                        AgeRating = entity.AgeRating,
+                        MaxNumberOfPlayers = entity.MaxNumberOfPlayers,
+                        MinNumberOfPlayers = entity.MinNumberOfPlayers,
+                        TeamGame = entity.TeamGame,
+                        Genre = entity.Genre,
+                        SurfaceType = entity.SurfaceType,
+                        BallGame = entity.BallGame,
+                        AreaOfPlayInFt = entity.AreaOfPlayInFt,
+                        StorageAreaId = entity.StorageArea.StorageAreaId,
+                        NameOfStorageArea = entity.StorageArea.NameOfStorageArea,
+                    };//end of new YardGameDetail definition
 
-        //need an edit
+            }//end of using
+
+        }//end of get yard game by id
+
+        //method to edit existing YardGame in database
+        public bool UpdateYardGame(YardGameEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.YardGames
+                    .Single(e => e.GameId == model.GameId);
+
+                entity.GameName = model.GameName;
+                entity.PublishYear = model.PublishYear;
+                entity.AgeRating = model.AgeRating;
+                entity.MaxNumberOfPlayers = model.MaxNumberOfPlayers;
+                entity.MinNumberOfPlayers = model.MinNumberOfPlayers;
+                entity.TeamGame = model.TeamGame;
+                entity.Genre = model.Genre;
+                entity.SurfaceType = model.SurfaceType;
+                entity.BallGame = model.BallGame;
+                entity.AreaOfPlayInFt = model.AreaOfPlayInFt;
+                entity.StorageId = model.StorageId;
+
+                return ctx.SaveChanges() == 1;
+
+            }//end of using 
+
+        }//end of method UpdateYardGame
 
 
-        //need a delete
+        //delete a particular YardGame
+        public bool DeleteYardGame(int gameId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .YardGames
+                    .Single(e => e.GameId == gameId);
+                ctx.YardGames.Remove(entity);
 
+                return ctx.SaveChanges() == 1;
 
+            }//end of using
 
+        }//end of method DeleteYardGame
 
 
     }//end of YardGameService
