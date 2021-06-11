@@ -88,9 +88,6 @@
     <Compile Include="CardGame.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202106090209018_Test.cs" />
-    <Compile Include="Migrations\202106090209018_Test.Designer.cs">
-      <DependentUpon>202106090209018_Test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,8 +100,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106090209018_Test.resx">
-      <DependentUpon>202106090209018_Test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
