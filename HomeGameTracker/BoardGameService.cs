@@ -113,8 +113,8 @@ namespace HomeGameTracker
                 entity.MinNumberOfPlayers = model.MinNumberOfPlayers;
                 entity.TeamGame = model.TeamGame;
                 entity.Genre = model.Genre;
-                entity.AveragePlayTimeMin = model.AveragePlayTimeMin,
-                entity.GameBoardType = model.GameBoardType,
+                entity.AveragePlayTimeMin = model.AveragePlayTimeMin;
+                entity.GameBoardType = model.GameBoardType;
                 entity.StorageId = model.StorageId;
 
                 return ctx.SaveChanges() == 1;
