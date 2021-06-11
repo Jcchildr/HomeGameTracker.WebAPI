@@ -88,6 +88,10 @@
     <Compile Include="CardGame.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202106110240080_newishMigration.cs" />
+    <Compile Include="Migrations\202106110240080_newishMigration.Designer.cs">
+      <DependentUpon>202106110240080_newishMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StorageArea.cs" />
@@ -99,7 +103,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    
+    <EmbeddedResource Include="Migrations\202106110240080_newishMigration.resx">
+      <DependentUpon>202106110240080_newishMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
