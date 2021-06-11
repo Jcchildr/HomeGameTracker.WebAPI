@@ -54,6 +54,7 @@ namespace HomeGameTracker
                                     GameName = e.GameName,
                                     Genre = e.Genre,
                                     AgeRating = e.AgeRating,
+                                    MaxNumberOfPlayers = e.MaxNumberOfPlayers,
                                     MinNumberOfPlayers = e.MinNumberOfPlayers,
                                     NumberOfCards = e.NumberOfCards,
                                     ExtraEquipmentUsed = e.ExtraEquipmentUsed,
@@ -90,35 +91,60 @@ namespace HomeGameTracker
                     };
             }
         }
-        public CardGameDetail GetGameIfGambling(CardGameDetail model)
+        public IEnumerable<CardGameListItem> GetGameIfGambling(bool gamble)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                foreach (CardGame cardGame in ctx.CardGames)
-                {
-                    if (model.IsGamblingGame == true)
-                    {
-                        return
-                        new CardGameDetail
-                        {
-                            GameId = model.GameId,
-                            GameName = model.GameName,
-                            Genre = model.Genre,
-                            AgeRating = model.AgeRating,
-                            MaxNumberOfPlayers = model.MaxNumberOfPlayers,
-                            MinNumberOfPlayers = model.MinNumberOfPlayers,
-                            NumberOfCards = model.NumberOfCards,
-                            ExtraEquipmentUsed = model.ExtraEquipmentUsed,
-                            IsGamblingGame = model.IsGamblingGame,
-                            AvgPlayTimeInMin = model.AvgPlayTimeInMin
-                        };
-                    }
-                    else
-                    {
+                var query =
+                    ctx
+                        .CardGames
+                        .Where(e => e.IsGamblingGame == gamble)
+                        .Select(
+                        e =>
+                            new CardGameListItem
+                            {
+                                GameId = e.GameId,
+                                GameName = e.GameName,
+                                Genre = e.Genre,
+                                AgeRating = e.AgeRating,
+                                MaxNumberOfPlayers = e.MaxNumberOfPlayers,
+                                MinNumberOfPlayers = e.MinNumberOfPlayers,
+                                NumberOfCards = e.NumberOfCards,
+                                ExtraEquipmentUsed = e.ExtraEquipmentUsed,
+                                IsGamblingGame = e.IsGamblingGame,
+                                AvgPlayTimeInMin = e.AvgPlayTimeInMin
+                            }
+                        );
+                return query.ToArray();
 
-                    };
-                }
-                return null;
+            }
+        }
+        public IEnumerable<CardGameListItem> GetGamesWithInNumberOfPlayers(int players)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .CardGames
+                        .Where(e => e.MinNumberOfPlayers >= players && players <= e.MaxNumberOfPlayers )
+                        .Select(
+                        e =>
+                            new CardGameListItem
+                            {
+                                GameId = e.GameId,
+                                GameName = e.GameName,
+                                Genre = e.Genre,
+                                AgeRating = e.AgeRating,
+                                MaxNumberOfPlayers = e.MaxNumberOfPlayers,
+                                MinNumberOfPlayers = e.MinNumberOfPlayers,
+                                NumberOfCards = e.NumberOfCards,
+                                ExtraEquipmentUsed = e.ExtraEquipmentUsed,
+                                IsGamblingGame = e.IsGamblingGame,
+                                AvgPlayTimeInMin = e.AvgPlayTimeInMin
+                            }
+                        );
+                return query.ToArray();
+
             }
         }
         public bool UpdateCardGame(CardGameEdit model)
