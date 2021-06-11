@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HomeGameTracker.Models
 {
-    public class GameListItem
+    public class CardGameListItem
     {
         //returning information on the game when it's part of a list
         public int GameId { get; set; }
@@ -32,5 +32,5 @@ namespace HomeGameTracker.Models
         [Display(Name = "Average time required to complete game")]
         public int AvgPlayTimeInMin { get; set; }
 
-    }//end of GameListItem
+    }//end of CardGameListItem
 }

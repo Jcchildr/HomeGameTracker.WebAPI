@@ -67,16 +67,79 @@ namespace HomeGameTracker
         }//end of method GetBoardGames
 
 
-        //need a get by id
+        //method to get board game by id
+        public BoardGameDetail GetBoardGameById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .BoardGames
+                    .Single(e => e.GameId == id);
+                return
+                    new BoardGameDetail
+                    {
+                        GameId = entity.GameId,
+                        GameName = entity.GameName,
+                        PublishYear = entity.PublishYear,
+                        AgeRating = entity.AgeRating,
+                        MaxNumberOfPlayers = entity.MaxNumberOfPlayers,
+                        MinNumberOfPlayers = entity.MinNumberOfPlayers,
+                        TeamGame = entity.TeamGame,
+                        Genre = entity.Genre,
+                        AveragePlayTimeInMin = entity.AveragePlayTimeMin,
+                        GameBoardType = entity.GameBoardType,
+                        StorageAreaId = entity.StorageArea.StorageAreaId,
+                        NameOfStorageArea = entity.StorageArea.NameOfStorageArea,
+                    };//end of new BoardGameDetail definition
+
+            }//end of using
+
+        }//end of get board game by id
+
+        //method to edit existing BoardGame in database
+        public bool UpdateBoardGame(BoardGameEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.BoardGames
+                    .Single(e => e.GameId == model.GameId);
+
+                entity.GameName = model.GameName;
+                entity.PublishYear = model.PublishYear;
+                entity.AgeRating = model.AgeRating;
+                entity.MaxNumberOfPlayers = model.MaxNumberOfPlayers;
+                entity.MinNumberOfPlayers = model.MinNumberOfPlayers;
+                entity.TeamGame = model.TeamGame;
+                entity.Genre = model.Genre;
+                entity.AveragePlayTimeMin = model.AveragePlayTimeMin;
+                entity.GameBoardType = model.GameBoardType;
+                entity.StorageId = model.StorageId;
+
+                return ctx.SaveChanges() == 1;
+
+            }//end of using 
+
+        }//end of method UpdateBoardGame
 
 
-        //need an edit
+        //delete a particular BoardGame
+        public bool DeleteBoardGame(int gameId)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .BoardGames
+                    .Single(e => e.GameId == gameId);
+                ctx.BoardGames.Remove(entity);
 
+                return ctx.SaveChanges() == 1;
 
-        //need a delete
+            }//end of using
 
-
-
+        }//end of method DeleteBoardGame
 
 
     }//end of class BoardGameService

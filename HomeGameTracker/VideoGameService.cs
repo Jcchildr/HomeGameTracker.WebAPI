@@ -58,7 +58,7 @@ namespace HomeGameTracker
                 return query.ToArray();
             }
         }// End GetVideoGames
-        
+
         public VideoGameDetail GetVideoGameById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -124,6 +124,7 @@ namespace HomeGameTracker
             }
         }//End of DeleteVideoGame
 
+
         public IEnumerable<VideoGameList> GetVideoGamesByConsoleType(string consoleType)
         {
             using (var ctx = new ApplicationDbContext())
@@ -149,7 +150,6 @@ namespace HomeGameTracker
                 return foundItems.ToArray();
             }
         }// End GetVideoGames By Console Type
-
-
+      
     }//End of VideoGameService
 }

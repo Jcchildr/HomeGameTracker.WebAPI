@@ -17,7 +17,7 @@ namespace HomeGameTracker.Models
         public string GameName { get; set; }
         [Display(Name = "Publish Year")]
         public int PublishYear { get; set; }
-        [Display(Name = "Age Rating")]
+        [Display(Name = "Age Range")]
         public int AgeRating { get; set; }
         [Display(Name = "Console Type")]
         public string ConsoleType { get; set; }
