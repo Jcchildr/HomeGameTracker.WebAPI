@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace HomeGameTracker.Data
 {
-    public class VideoGame : Game
+    public class BoardGame: Game
     {
         [Required]
-        public string ConsoleType { get; set; }
+        public int AveragePlayTimeMin { get; set; }
         [Required]
-        public bool OnlineGamePlay { get; set; }
+        public string GameBoardType { get; set; }
 
-    }//end class
+
+    }//end of class BoardGame
 }

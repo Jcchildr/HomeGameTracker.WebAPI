@@ -7,13 +7,13 @@ namespace HomeGameTracker.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class cardgame : IMigrationMetadata
+    public sealed partial class _new : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(cardgame));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_new));
         
         string IMigrationMetadata.Id
         {
-            get { return "202105280110234_cardgame"; }
+            get { return "202106102124319_new"; }
         }
         
         string IMigrationMetadata.Source

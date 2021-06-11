@@ -84,43 +84,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoardGame.cs" />
     <Compile Include="CardGame.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IdentityModels.cs" />
-
-    <Compile Include="Migrations\202105280110234_cardgame.cs" />
-    <Compile Include="Migrations\202105280110234_cardgame.Designer.cs">
-      <DependentUpon>202105280110234_cardgame.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106021644438_storageArea.cs" />
-    <Compile Include="Migrations\202106021644438_storageArea.Designer.cs">
-      <DependentUpon>202106021644438_storageArea.cs</DependentUpon>
-
-    <Compile Include="Migrations\202106030115425_InitialMigration.cs" />
-    <Compile Include="Migrations\202106030115425_InitialMigration.Designer.cs">
-      <DependentUpon>202106030115425_InitialMigration.cs</DependentUpon>
-
+    <Compile Include="Migrations\202106102124319_new.cs" />
+    <Compile Include="Migrations\202106102124319_new.Designer.cs">
+      <DependentUpon>202106102124319_new.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StorageArea.cs" />
     <Compile Include="VideoGame.cs" />
+    <Compile Include="YardGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-
-    <EmbeddedResource Include="Migrations\202105280110234_cardgame.resx">
-      <DependentUpon>202105280110234_cardgame.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106021644438_storageArea.resx">
-      <DependentUpon>202106021644438_storageArea.cs</DependentUpon>
-
-    <EmbeddedResource Include="Migrations\202106030115425_InitialMigration.resx">
-      <DependentUpon>202106030115425_InitialMigration.cs</DependentUpon>
-
+    <EmbeddedResource Include="Migrations\202106102124319_new.resx">
+      <DependentUpon>202106102124319_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

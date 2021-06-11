@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HomeGameTracker.Models
 {
-    public class GameListItem
+    public class CardGameListItem
     {
         //returning information on the game when it's part of a list
         public int GameId { get; set; }
@@ -17,9 +17,12 @@ namespace HomeGameTracker.Models
         public string Genre { get; set; }
         [Display(Name = "Age Rating")]
         public int AgeRating { get; set; }
-        [Display(Name = "Number Of Players")]
+        [Display(Name = "Maximum Number Of Players")]
         [Range(1, 64, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
-        public int NumberOfPlayers { get; set; }
+        public int MaxNumberOfPlayers { get; set; }
+        [Display(Name = "Minimum Number Of Players")]
+        [Range(1, 64, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int MinNumberOfPlayers { get; set; }
         [Display(Name = "Number of cards needed")]
         public string NumberOfCards { get; set; }
         [Display(Name = "Items needed other than the cards")]
@@ -29,5 +32,5 @@ namespace HomeGameTracker.Models
         [Display(Name = "Average time required to complete game")]
         public int AvgPlayTimeInMin { get; set; }
 
-    }//end of GameListItem
+    }//end of CardGameListItem
 }

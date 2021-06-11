@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeGameTracker.Data
+namespace HomeGameTracker.Models
 {
-    public abstract class Game
+    public class YardGameCreate
     {
-        [Key]
-        public int GameId { get; set; }
         [Required]
         public string GameName { get; set; }
         [Required]
@@ -20,15 +17,25 @@ namespace HomeGameTracker.Data
         public int MaxNumberOfPlayers { get; set; }
         [Required]
         public int MinNumberOfPlayers { get; set; }
-        [Required] 
+        [Required]
         public int PublishYear { get; set; }
+        [Required]
+        public string Genre { get; set; }
         [Required]
         public bool TeamGame { get; set; }
         [Required]
-        public string Genre { get; set; }
-
-        [ForeignKey(nameof(StorageArea))]
         public int StorageId { get; set; }
-        public virtual StorageArea StorageArea { get; set; }
-    }
+
+        //specific attributes of YardGame
+        [Required]
+        public string SurfaceType { get; set; }
+        [Required]
+        public bool BallGame { get; set; }
+        [Required]
+        public int AreaOfPlayInFt {get;set;}
+
+
+
+
+    }//end of class YardGameCreate
 }

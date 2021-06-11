@@ -37,5 +37,33 @@ namespace HomeGameTracker.WebAPI.Controllers
             var VideoGameService = new VideoGameService();
             return VideoGameService;
         }
+
+        public IHttpActionResult Get(int id)
+        {
+            VideoGameService videoGameService = CreateVideoGameService();
+            var videoGame = videoGameService.GetVideoGameById(id);
+            return Ok(videoGame);
+        }
+        public IHttpActionResult Put(VideoGameEdit videoGame)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateVideoGameService();
+
+            if (!service.UpdateVideoGame(videoGame))
+                return InternalServerError();
+
+            return Ok();
+        }
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateVideoGameService();
+
+            if (!service.DeleteVideoGame(id))
+                return InternalServerError();
+
+            return Ok();
+        }
     }
 }
