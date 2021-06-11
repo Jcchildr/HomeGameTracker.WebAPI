@@ -126,7 +126,7 @@ namespace HomeGameTracker
                 var query =
                     ctx
                         .CardGames
-                        .Where(e => e.MinNumberOfPlayers >= players && players <= e.MaxNumberOfPlayers )
+                        .Where(e => e.MinNumberOfPlayers <= players && players <= e.MaxNumberOfPlayers )
                         .Select(
                         e =>
                             new CardGameListItem
