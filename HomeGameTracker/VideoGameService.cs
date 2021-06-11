@@ -61,7 +61,7 @@ namespace HomeGameTracker
                 return query.ToArray();
             }
         }// End GetVideoGames
-        
+
         public VideoGameDetail GetVideoGameById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -127,6 +127,6 @@ namespace HomeGameTracker
             }
         }//End of DeleteVideoGame
 
-     
+
     }//End of VideoGameService
 }

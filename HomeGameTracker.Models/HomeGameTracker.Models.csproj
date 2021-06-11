@@ -55,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoardGameCreate.cs" />
+    <Compile Include="BoardGameDetail.cs" />
+    <Compile Include="BoardGameEdit.cs" />
     <Compile Include="BoardGameList.cs" />
     <Compile Include="GameStorageDetail.cs" />
     <Compile Include="StorageAreaEdit.cs" />
@@ -71,6 +73,8 @@
     <Compile Include="VideoGameList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="YardGameCreate.cs" />
+    <Compile Include="YardGameDetail.cs" />
+    <Compile Include="YardGameEdit.cs" />
     <Compile Include="YardGameList.cs" />
   </ItemGroup>
   <ItemGroup>
