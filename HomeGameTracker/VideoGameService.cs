@@ -48,11 +48,8 @@ namespace HomeGameTracker
                                 {
                                     GameId = e.GameId,
                                     GameName = e.GameName,
-                                    AgeRating = e.AgeRating,
-                                    MaxNumberOfPlayers = e.MaxNumberOfPlayers,
-                                    MinNumberOfPlayers = e.MinNumberOfPlayers,
                                     PublishYear = e.PublishYear,
-                                    Genre = e.Genre,
+                                    AgeRating = e.AgeRating,
                                     ConsoleType = e.ConsoleType,
                                     NameOfStorageArea = e.StorageArea.NameOfStorageArea,
 
@@ -128,5 +125,31 @@ namespace HomeGameTracker
         }//End of DeleteVideoGame
 
 
+        public IEnumerable<VideoGameList> GetVideoGamesByConsoleType(string consoleType)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var foundItems =
+                    ctx
+                        .VideoGames
+                        .Where(e => e.ConsoleType == consoleType)
+                        .Select(
+                        e => 
+                            new VideoGameList
+                            {
+                                GameId = e.GameId, 
+                                GameName = e.GameName,
+                                PublishYear = e.PublishYear,
+                                AgeRating = e.AgeRating,
+                                ConsoleType =e.ConsoleType,
+                                NameOfStorageArea = e.StorageArea.NameOfStorageArea,
+                            }
+
+                        );
+
+                return foundItems.ToArray();
+            }
+        }// End GetVideoGames By Console Type
+      
     }//End of VideoGameService
 }

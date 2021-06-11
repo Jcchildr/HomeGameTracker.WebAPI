@@ -36,7 +36,6 @@ namespace HomeGameTracker
                             e =>
                                 new StorageAreaList
                                 {
-                                    StorageAreaId = e.StorageAreaId,
                                     NameOfStorageArea = e.NameOfStorageArea,
                                     GameType = e.GameType,
                                     GameCount = e.ListOfGames.Count
@@ -45,17 +44,6 @@ namespace HomeGameTracker
                 return query.ToArray();
             }
         }//End public class GetStorageArea
-
-        public void AddVideoGameToStorageArea(int videoGameId, int storageId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var foundStorageArea = ctx.StorageAreas.Single(s => s.StorageAreaId == storageId);
-                var foundVideoGame = ctx.VideoGames.Single(v => v.GameId == videoGameId);
-                foundStorageArea.ListOfGames.Add(foundVideoGame);
-                var testing = ctx.SaveChanges();
-            }
-        }//End public class AddVideoGameToStorageArea
 
         public StorageAreaDetail GetStorageAreaById(int id)
         {
@@ -94,14 +82,15 @@ namespace HomeGameTracker
         public bool DeleteStorageArea(int storageId)
         {
             using (var ctx = new ApplicationDbContext())
-            {
+            {       
                 var entity =
                     ctx
                         .StorageAreas
                         .Single(e => e.StorageAreaId == storageId);
-
+                   
+                
                 ctx.StorageAreas.Remove(entity);
-
+                
                 return ctx.SaveChanges() == 1;
             }
         }//End of DeleteStorageArea
@@ -110,7 +99,7 @@ namespace HomeGameTracker
             using (var ctx = new ApplicationDbContext())
             {
                 var foundItems =
-               ctx.StorageAreas.Single(s => s.StorageAreaId == storageId).ListOfGames
+               ctx.StorageAreas.Single(e => e.StorageAreaId == storageId).ListOfGames
                .Select(e => new GameStorageDetail
                {
                    GameId = e.GameId,
@@ -121,6 +110,45 @@ namespace HomeGameTracker
             }
 
         }//End of public GetAllGamesByStorageId
+
+        public IEnumerable<StorageAreaDetail> GetStorageAreasByGameType(string gameType)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var foundItems =
+                    ctx
+                        .StorageAreas
+                        .Where(e => e.GameType == gameType)
+                        .Select(
+                        e =>
+                            new StorageAreaDetail
+                            {
+                                StorageAreaId = e.StorageAreaId,
+                                NameOfStorageArea = e.NameOfStorageArea,
+                                GameType = e.GameType,
+                                GameCount = e.ListOfGames.Count
+                            }
+
+                        );
+
+                return foundItems.ToArray();
+            }
+        }// End GetStorageAreas By Game Type
+
+
+        //Stretch Goal  
+        //Reassign Games to a different StorageArea before or after deleting the StorageArea
+        public void AddVideoGameToStorageArea(int videoGameId, int storageId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var foundStorageArea = ctx.StorageAreas.Single(s => s.StorageAreaId == storageId);
+                var foundVideoGame = ctx.VideoGames.Single(v => v.GameId == videoGameId);
+                foundStorageArea.ListOfGames.Add(foundVideoGame);
+                var testing = ctx.SaveChanges();
+            }
+        }//End public class AddVideoGameToStorageArea
+
 
     }// End public class StorageAreaService
 }

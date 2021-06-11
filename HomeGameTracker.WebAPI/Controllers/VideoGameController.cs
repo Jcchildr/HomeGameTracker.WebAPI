@@ -65,5 +65,12 @@ namespace HomeGameTracker.WebAPI.Controllers
 
             return Ok();
         }
+
+        public IHttpActionResult GetVideoGamesByConsoleType(string consoleType)
+        {
+            VideoGameService service = new VideoGameService();
+            var games = service.GetVideoGamesByConsoleType(consoleType);
+            return Ok(games);
+        }
     }
 }
