@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeGameTracker.Data
+namespace HomeGameTracker.Models
 {
-    public abstract class Game
+    public class VideoGameCreate
     {
-        [Key]
-        public int GameId { get; set; }
         [Required]
         public string GameName { get; set; }
         [Required]
@@ -20,15 +17,17 @@ namespace HomeGameTracker.Data
         public int MaxNumberOfPlayers { get; set; }
         [Required]
         public int MinNumberOfPlayers { get; set; }
-        [Required] 
+        [Required]
         public int PublishYear { get; set; }
+        [Required]
+        public string Genre { get; set; }
         [Required]
         public bool TeamGame { get; set; }
         [Required]
-        public string Genre { get; set; }
-
-        [ForeignKey(nameof(StorageArea))]
+        public string ConsoleType { get; set; }
+        [Required]
+        public bool OnlineGamePlay { get; set; }
+        [Required]
         public int StorageId { get; set; }
-        public virtual StorageArea StorageArea { get; set; }
     }
 }

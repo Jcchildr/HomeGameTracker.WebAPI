@@ -5,21 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeGameTracker.Data
+namespace HomeGameTracker.Models
 {
-    public class StorageArea
+    public class StorageAreaEdit
     {
-        [Key]
+        [Required]
         public int StorageAreaId { get; set; }
         [Required]
         public string NameOfStorageArea { get; set; }
         [Required]
         public string GameType { get; set; }
 
-        public virtual ICollection<Game> ListOfGames { get; set; }
-        public StorageArea()
-        {
-            ListOfGames = new HashSet<Game>();
-        }
-    }//end of class
+    }
 }

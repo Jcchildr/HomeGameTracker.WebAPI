@@ -54,11 +54,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoardGameCreate.cs" />
+    <Compile Include="BoardGameDetail.cs" />
+    <Compile Include="BoardGameEdit.cs" />
+    <Compile Include="BoardGameList.cs" />
+    <Compile Include="GameStorageDetail.cs" />
+    <Compile Include="StorageAreaEdit.cs" />
+    <Compile Include="StorageAreaDetail.cs" />
+    <Compile Include="VideoGameEdit.cs" />
+    <Compile Include="VideoGameDetail.cs" />
+    <Compile Include="CardGameCreate.cs" />
+    <Compile Include="CardGameDetail.cs" />
+    <Compile Include="CardGameEdit.cs" />
+    <Compile Include="CardGameListItem.cs" />
+    <Compile Include="StorageAreaList.cs" />
+    <Compile Include="StorageAreaCreate.cs" />
+    <Compile Include="VideoGameCreate.cs" />
+    <Compile Include="VideoGameList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="YardGameCreate.cs" />
+    <Compile Include="YardGameDetail.cs" />
+    <Compile Include="YardGameEdit.cs" />
+    <Compile Include="YardGameList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HomeGameTracker.Data\HomeGameTracker.Data.csproj">
+      <Project>{bb185d90-41d6-4ac3-b90b-97fef4cac048}</Project>
+      <Name>HomeGameTracker.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

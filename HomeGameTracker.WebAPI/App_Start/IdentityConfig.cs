@@ -1,10 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using HomeGameTracker.Data;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
-using HomeGameTracker.WebAPI.Models;
-using HomeGameTracker.Data;
 
 namespace HomeGameTracker.WebAPI
 {
