@@ -6,7 +6,7 @@ namespace HomeGameTracker.Models
     public class CardGameCreate : Game
     {
         [Required]
-        public string NumberOfCards { get; set; }
+        public int NumberOfCards { get; set; }
         [Required]
         public string ExtraEquipmentUsed { get; set; }
         [Required]
