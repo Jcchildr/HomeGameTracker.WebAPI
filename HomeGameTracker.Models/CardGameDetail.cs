@@ -9,7 +9,7 @@ namespace HomeGameTracker.Models
 {
     public class CardGameDetail : Game
     {
-        public string NumberOfCards { get; set; }
+        public int NumberOfCards { get; set; }
         public string ExtraEquipmentUsed { get; set; }
         public bool IsGamblingGame { get; set; }
         public int AvgPlayTimeInMin { get; set; }
